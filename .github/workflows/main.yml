@@ -34,8 +34,8 @@ jobs:
           docker-compose build
           docker-compose up -d
           sleep 5
-      - bash: docker ps
-        displayName: 'Show running containers'
+      - name: show containers
+        run: docker ps
       - name: run tests
         run: pytest -vvv
       - name: pytest notebooks

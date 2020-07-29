@@ -20,7 +20,8 @@ dependencies:
   - tornado
   - graphviz
   - altair
-  - pip
+  - pytest
   
 pip:
   - ibis-framework[omniscidb]
+  - ibis-vega-transform

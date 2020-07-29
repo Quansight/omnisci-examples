@@ -37,6 +37,7 @@ jobs:
       - name: show containers
         run: docker ps
       - name: run tests
+        shell: bash -l {0}
         run: pytest -vvv
       - name: pytest notebooks
         shell: bash -l {0}

@@ -41,4 +41,4 @@ jobs:
       - name: pytest notebooks
         shell: bash -l {0}
         run: |
-          sh -c 'pytest /Users/kcp/projects/omnisci/git/initial_setup/notebooks/01_Getting_Started_OmniSciDB_and_Ibis.ipynb; ret=$?; [ $ret = 5 ] && exit 0 || exit $ret'
+          sh -c 'pytest /notebooks/01_Getting_Started_OmniSciDB_and_Ibis.ipynb; ret=$?; [ $ret = 5 ] && exit 0 || exit $ret'

@@ -30,14 +30,14 @@ jobs:
         shell: bash -l {0}
         run: conda list
       - name: Build the docker image
-          run: |
-            docker-compose build
-            docker-compose up -d
-            sleep 5
+        run: |
+          docker-compose build
+          docker-compose up -d
+          sleep 5
       - bash: docker ps
-          displayName: 'Show running containers'
+        displayName: 'Show running containers'
       - name: run tests
-          run: pytest -vvv
+        run: pytest -vvv
       - name: pytest notebooks
         shell: bash -l {0}
         run: |

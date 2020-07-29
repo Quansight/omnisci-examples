@@ -1,0 +1,11 @@
+version: '3'
+services:
+
+  omniscidb:
+    image: omnisci/core-os-cpu:v5.2.2
+    hostname: omniscidb
+    ports:
+      - 6274:6274
+      - 6278:6278
+    volumes:
+      - ./omniscidb.conf:/omnisci-storage/omnisci.conf

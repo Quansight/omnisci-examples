@@ -1,0 +1,12 @@
+.dockerignore
+.git
+.github
+.gitignore
+.idea
+.jekyll-metadata
+.sass-cache
+Dockerfile
+Dockerfile.archive
+docker-compose.yml
+LICENSE
+README.md

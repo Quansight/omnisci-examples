@@ -1,0 +1,27 @@
+name: omnisci
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python=3.7
+  - rbc
+  - pymapd=0.23
+  - numba
+  - llvmlite>=0.29
+  - tblib
+  - thriftpy2
+  - six
+  - netifaces
+  - jaeger
+  - jupyterlab>=2
+  - nodejs>=12
+  - notebook
+  - tornado
+  - graphviz
+  - altair
+  - pytest
+  
+pip:
+  - ibis-framework[omniscidb]
+  - ibis-vega-transform

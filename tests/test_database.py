@@ -1,11 +1,5 @@
-
 def test_db_connection_local(con):
     assert con.user == 'admin'
-
-
-def test_db_connection_external(con_external):
-    """Test the connection to the external database"""
-    assert con_external.user == 'demouser'
 
 
 def test_db_table_exists(con_external):

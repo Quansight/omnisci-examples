@@ -1,7 +1,6 @@
 """OmniSciDB test configuration module."""
-import pytest
-
 import ibis
+import pytest
 
 OMNISCIDB_HOST = '127.0.0.1'
 OMNISCIDB_PORT = 6274
@@ -30,7 +29,8 @@ def con():
         password=OMNISCIDB_PASSWORD,
         host=OMNISCIDB_HOST,
         port=OMNISCIDB_PORT,
-        database=OMNISCIDB_DATABASE
+        database=OMNISCIDB_DATABASE,
+        protocol=OMNISCIDB_PROTOCOL
     )
     return omnisci_client
 
@@ -47,6 +47,7 @@ def con_external():
         password=EXT_OMNISCIDB_PASSWORD,
         host=EXT_OMNISCIDB_HOST,
         port=EXT_OMNISCIDB_PORT,
-        database=EXT_OMNISCIDB_DATABASE
+        database=EXT_OMNISCIDB_DATABASE,
+        protocol=EXT_OMNISCIDB_PROTOCOL
     )
     return omnisci_client

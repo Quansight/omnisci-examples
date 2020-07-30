@@ -21,7 +21,9 @@ dependencies:
   - graphviz
   - altair
   - pytest
-  
-pip:
-  - ibis-framework[omniscidb]
-  - ibis-vega-transform
+  - ibis-framework
+  - pip
+
+  - pip:
+    - ibis-framework[omniscidb]
+    - ibis-vega-transform

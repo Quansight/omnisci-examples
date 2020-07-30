@@ -38,8 +38,4 @@ jobs:
         run: docker ps
       - name: run tests
         shell: bash -l {0}
-        run: pytest -vvv
-      - name: pytest notebooks
-        shell: bash -l {0}
-        run: |
-          sh -c 'pytest /notebooks/01_Getting_Started_OmniSciDB_and_Ibis.ipynb; ret=$?; [ $ret = 5 ] && exit 0 || exit $ret'
+        run: pytest

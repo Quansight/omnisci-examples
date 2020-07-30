@@ -2,7 +2,7 @@ version: '3'
 services:
 
   omniscidb:
-    image: omnisci/core-os-cpu:v5.2.2
+    image: omnisci/core-os-cpu:v5.2.2  # pin until ibis.sql is resolved in 5.3
     hostname: omniscidb
     ports:
       - 6274:6274

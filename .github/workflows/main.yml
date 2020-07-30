@@ -30,15 +30,12 @@ jobs:
         shell: bash -l {0}
         run: conda list
       - name: Build the docker image
-          run: |
-            docker-compose build
-            docker-compose up -d
-            sleep 5
-      - bash: docker ps
-          displayName: 'Show running containers'
-      - name: run tests
-          run: pytest -vvv
-      - name: pytest notebooks
-        shell: bash -l {0}
         run: |
-          sh -c 'pytest /Users/kcp/projects/omnisci/git/initial_setup/notebooks/01_Getting_Started_OmniSciDB_and_Ibis.ipynb; ret=$?; [ $ret = 5 ] && exit 0 || exit $ret'
+          docker-compose build
+          docker-compose up -d
+          sleep 5
+      - name: show containers
+        run: docker ps
+      - name: run tests
+        shell: bash -l {0}
+        run: pytest

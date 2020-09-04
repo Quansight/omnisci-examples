@@ -1,0 +1,54 @@
+# The databases backing OmniSci's interactive data visualization demos.
+metadata:
+  name: Interactive Data Visualization Demos
+  version: 1
+sources:
+  ships:
+    driver: omnisci
+    args:
+      user: demouser
+      password: HyperInteractive
+      dbname: mapd
+      host: ships-demo-local.mapd.com
+      protocol: https
+      port: 443
+      sql_expr: ships_ais
+  flights:
+    driver: omnisci
+    args:
+      user: demouser
+      password: HyperInteractive
+      dbname: newflights
+      host: demo-flights.omnisci.com
+      protocol: http
+      port: 80
+      sql_expr: flights
+  census:
+    driver: omnisci
+    args:
+      user: demouser
+      password: HyperInteractive
+      dbname: mapd
+      host: demo-census.omnisci.com
+      protocol: http
+      port: 80
+      sql_expr: ipums_2000_2015
+  political:
+    driver: omnisci
+    args:
+      user: demouser
+      password: HyperInteractive
+      dbname: mapd
+      host: demo-political.omnisci.com
+      protocol: http
+      port: 80
+      sql_expr: fec_contributions_oct
+  metis:
+    driver: omnisci_cat
+    args:
+      user: mapd
+      password: HyperInteractive
+      dbname: mapd
+      host: metis.mapd.com
+      protocol: https
+      port: 443

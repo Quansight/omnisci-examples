@@ -1,0 +1,18 @@
+metadata:
+sources:
+  flights:
+    driver: omnisci
+    args:
+      uri: 'mapd://mapd:HyperInteractive@metis.mapd.com:443/mapd?protocol=https'
+      sql_expr: 'SELECT * from flights_donotmodify LIMIT 10'
+
+  faults:
+    driver: omnisci
+    args:
+      uri: 'mapd://mapd:HyperInteractive@metis.mapd.com:443/mapd?protocol=https'
+      sql_expr: 'us_faults'
+      
+  metis:
+    driver: omnisci_cat
+    args:
+      uri: 'mapd://mapd:HyperInteractive@metis.mapd.com:443/mapd?protocol=https'

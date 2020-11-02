@@ -1,6 +1,7 @@
 name: omnisci
 
 channels:
+  - quansight/label/omnisci
   - conda-forge
 
 dependencies:
@@ -8,8 +9,8 @@ dependencies:
   - bokeh
   - geoviews
   - graphviz
-  - hvplot
-  - ibis-framework
+  - ibis-vega-transform
+  - intake
   - jaeger
   - jupyterlab>=2
   - llvmlite>=0.29
@@ -19,14 +20,20 @@ dependencies:
   - numba
   - omnisci-pytools
   - pip
+  - pydot
   - pymapd
   - pytest
   - python=3.7
+  - python-graphviz
   - rbc
   - six
   - tblib
   - thriftpy2
   - tornado
 
+  - quansight/label/omnisci::holoviews
+  - quansight/label/omnisci::hvplot
+  - quansight/label/omnisci::ibis-framework
+
   - pip:
-    - ibis-vega-transform
+    - intake-omnisci

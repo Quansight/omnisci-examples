@@ -7,7 +7,7 @@ jobs:
   test_suite:
     name: Pytest on ${{ matrix.python-version }}, ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 30
+    timeout-minutes: 45
     strategy:
       fail-fast: false
       matrix:
@@ -30,7 +30,11 @@ jobs:
         shell: bash -l {0}
         run: conda list
       - name: Build the docker image
+        shell: bash -l {0}
         run: |
+          # force docker-compose installation
+          conda install -y docker-compose
+          # run docker services
           docker-compose build
           docker-compose up -d
           sleep 5
@@ -39,3 +43,8 @@ jobs:
       - name: run tests
         shell: bash -l {0}
         run: pytest
+      - name: test notebooks
+        shell: bash -l {0}
+        run: |
+          conda install -y nbconvert
+          ./tests/test_notebooks.sh

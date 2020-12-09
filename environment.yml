@@ -10,7 +10,7 @@ dependencies:
   - bokeh
   - geoviews
   - quansight/label/omnisci::hvplot
-  - quansight/label/omnisci::holoviews
+  - holoviews >=1.14.0
   - ibis-framework >=1.4
   - intake >=0.5.3
   - jaeger

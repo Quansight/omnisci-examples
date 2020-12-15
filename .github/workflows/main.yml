@@ -46,5 +46,4 @@ jobs:
       - name: test notebooks
         shell: bash -l {0}
         run: |
-          conda install -y nbconvert
-          ./tests/test_notebooks.sh
+          pytest --nbmake -vv notebooks/*.ipynb notebooks/**/*.ipynb

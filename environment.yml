@@ -1,3 +1,4 @@
+# if you have any conflict issue, try to remove "default" from your ~/.condarc file
 name: omnisci
 
 channels:
@@ -31,3 +32,4 @@ dependencies:
   - pip:
     - intake-omnisci
     - ibis-vega-transform
+    - nbmake==0.1.post1

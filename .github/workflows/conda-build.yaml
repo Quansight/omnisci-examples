@@ -1,0 +1,54 @@
+name: conda-build
+
+on:
+  push:
+    branches: [ master ]
+    tags: ['*']
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  macos:
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      matrix:
+        python-version: [3.7]
+
+    env:
+      PYTHON_VERSION: ${{ matrix.python-version }}
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: conda-incubator/setup-miniconda@v2
+      with:
+        auto-update-conda: true
+        python-version: ${{ matrix.python-version }}
+        activate-environment: omnisci-datascience
+        channels: quansight/label/omnisci,conda-forge
+
+    - name: install dependencies
+      shell: bash -l {0}
+      run: |
+        conda install -y conda-build
+
+    - name: run conda build
+      shell: bash -l {0}
+      run: conda-build conda -c quansight/label/omnisci
+
+    - name: release to the quansight conda channel
+      # NOTE: it should run just for 'ref/tags/',
+      #       but for now we need it running for 'push'
+      #       when the first package is ready on anaconda quansight channel
+      #       it should be changed to 'ref/tags/'
+      if: startsWith(github.ref, 'push')
+      env:
+        ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
+      run: |
+        anaconda --token $ANACONDA_TOKEN upload \
+        --user quansight \
+        --label omnisci \
+        --skip-existing \
+        /usr/share/miniconda/envs/omnisci-datascience/conda-bld/noarch/omnisci-examples*.tar.bz2

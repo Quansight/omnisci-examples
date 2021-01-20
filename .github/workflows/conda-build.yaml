@@ -3,7 +3,6 @@ name: conda-build
 on:
   push:
     branches: [ master ]
-    tags: ['*']
   pull_request:
     branches: [ master ]
 
@@ -40,7 +39,6 @@ jobs:
 
     - name: release to the quansight conda channel
       shell: bash -l {0}
-      # if: startsWith(github.ref, 'ref/tags/')
       if: startsWith(github.event_name, 'push')
       env:
         ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
@@ -49,4 +47,4 @@ jobs:
         --user quansight \
         --label omnisci \
         --skip-existing \
-        /usr/share/miniconda/envs/omnisci-datascience/conda-bld/noarch/omnisci-examples-*.tar.bz2
+        /usr/local/miniconda/envs/omnisci-datascience/conda-bld/noarch/omnisci-examples-*.tar.bz2

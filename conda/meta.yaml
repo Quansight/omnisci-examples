@@ -10,25 +10,11 @@ source:
 
 build:
   noarch: generic
-  number: 0
+  number: {{ environ.get('GIT_DESCRIBE_NUMBER', 0) }}
 
 requirements:
   host:
     - git
-#   run:
-#     - omnisci-datascience-tools
-
-# test:
-#   imports:
-#     - ibis.backends.omniscidb
-#     - pymapd
-#     - intake
-#     - altair
-#     - ibis_vega_transform
-#     - geoviews
-#     - holoviews
-#     - graphviz
-#     - pydot
 
 about:
   home: https://github.com/Quansight/omnisci-examples

@@ -47,4 +47,4 @@ jobs:
         --user quansight \
         --label omnisci \
         --skip-existing \
-        /usr/local/miniconda/envs/omnisci-datascience/conda-bld/noarch/omnisci-examples-*.tar.bz2
+        /usr/share/miniconda/envs/omnisci-datascience/conda-bld/noarch/omnisci-examples-*.tar.bz2

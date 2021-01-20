@@ -1,0 +1,28 @@
+{% set name = "omnisci-examples" %}
+{% set version = "0.0.1" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  git_url: ../
+
+build:
+  noarch: generic
+  number: {{ environ.get('GIT_DESCRIBE_NUMBER', 0) }}
+
+requirements:
+  host:
+    - git
+
+about:
+  home: https://github.com/Quansight/omnisci-examples
+  license: MIT
+  license_family: MIT
+  license_file: ../LICENSE
+  summary: 'OmniSci Example Notebooks'
+
+extra:
+  recipe-maintainers:
+    - xmnlab

@@ -6,9 +6,30 @@ channels:
   - conda-forge
 
 dependencies:
-  # force hvplot from specific channel
+  - altair
+  - arrow-cpp 0.15.0
+  - bokeh
+  - geoviews
   - quansight/label/omnisci::hvplot
-  - quansight/label/omnisci::omnisci-datascience-tools
+  - holoviews >=1.14.0
+  - ibis-framework >=1.4
+  - intake >=0.5.3
+  - jaeger
+  - jupyterlab >=2.2
+  - jupyter-jaeger
+  - nodejs >=12
+  - notebook
+  - omnisci-pytools
+  - pandas
+  - pip
+  # pyarrow 0.15.1 is raising an error: Library not loaded: @rpath/libprotobuf.22.dylib
+  - pyarrow 0.15.0
+  - pydot
+  - pymapd >=0.24
+  - pytest
+  - python 3.7.*
+  - rbc >=0.4
   - pip:
-    # for tests
+    - intake-omnisci
+    - ibis-vega-transform
     - nbmake==0.1.post1

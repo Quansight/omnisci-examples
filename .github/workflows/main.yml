@@ -17,12 +17,13 @@ jobs:
       - uses: actions/checkout@v2
       - uses: conda-incubator/setup-miniconda@v2
         with:
-           activate-environment: omnisci
-           environment-file: environment.yml
-           python-version: ${{ matrix.python-version }}
-           auto-activate-base: false
-           auto-update-conda: false
-           channels: conda-forge # This should match what is specified in the environment.yml channels
+            activate-environment: omnisci
+            environment-file: environment.yml
+            python-version: ${{ matrix.python-version }}
+            auto-activate-base: false
+            auto-update-conda: false
+            # This should match what is specified in the environment.yml channels
+            channels: quansight/label/omnisci,conda-forge
       - name: conda config
         shell: bash -l {0}
         run: conda config --show

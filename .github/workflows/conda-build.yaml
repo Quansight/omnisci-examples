@@ -35,7 +35,7 @@ jobs:
 
     - name: run conda build
       shell: bash -l {0}
-      run: conda-build conda -c quansight/label/omnisci
+      run: conda-build conda
 
     - name: release to the quansight conda channel
       shell: bash -l {0}

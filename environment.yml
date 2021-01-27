@@ -14,10 +14,11 @@ dependencies:
   - holoviews >=1.14.0
   - ibis-framework >=1.4
   - intake >=0.5.3
+  - intake-omnisci
   - jaeger
-  - jupyterlab >=2.2
+  - jupyterlab >=2.2,<3
   - jupyter-jaeger
-  - nodejs >=12
+  - nodejs >=12,<15
   - notebook
   - omnisci-pytools
   - pandas
@@ -30,6 +31,5 @@ dependencies:
   - python 3.7.*
   - rbc >=0.4
   - pip:
-    - intake-omnisci
     - ibis-vega-transform
     - nbmake==0.1.post1

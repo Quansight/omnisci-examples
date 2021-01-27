@@ -10,7 +10,7 @@ jobs:
   macos:
 
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 10
     strategy:
       matrix:
         python-version: [3.7]
@@ -20,6 +20,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
 
     - uses: conda-incubator/setup-miniconda@v2
       with:

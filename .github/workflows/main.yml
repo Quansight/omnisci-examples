@@ -46,22 +46,4 @@ jobs:
         run: pytest
       - name: test notebooks
         shell: bash -l {0}
-        run: |
-          # don't test notebooks that use mapd.com server:
-          #  - notebooks/additional_examples/A05_Replicate_Vega_at_a_Glance_Example.ipynb
-          #  - notebooks/additional_examples/A04_Replicate_MapD_Example.ipynb
-          #  - notebooks/additional_examples/A03_Ibis_Altair_Extraction.ipynb
-          #  - notebooks/02_Querying_Data.ipynb
-          #  - notebooks/workshop/Interactive_Computing_in_Jupyter_and_Python_part_1.ipynb
-          #  - notebooks/workshop/Altair_Ibis_Vega_for_Interactive_Exploration.ipynb
-          #  - notebooks/workshop/Connecting_Holoviz_Visualization_Ecosystem_to_OmniSci_part_1.ipynb
-          #  - notebooks/workshop/Connecting_Holoviz_Visualization_Ecosystem_to_OmniSci_part_2.ipynb
-          pytest --nbmake -vv \
-            notebooks/01_Introduction.ipynb \
-            notebooks/03_Using_Intake_to_Build_Data_Catalogs_for_Data_Science.ipynb \
-            notebooks/04_Advanced-Using_UDFs_and_UDTFs.ipynb \
-            notebooks/additional_examples/A01_Getting_Started_OmniSciDB_and_Ibis.ipynb \
-            notebooks/additional_examples/A02_Omnisci_Runtime_UDF.ipynb \
-            notebooks/additional_examples/A06_Replicate_Interactive_Slider_Example.ipynb \
-            notebooks/workshop/Interactive_Computing_in_Jupyter_and_Python_part_2.ipynb \
-            notebooks/workshop/User_Defined_Algorithms_on_Big_Data.ipynb
+        run: pytest --nbmake -vv

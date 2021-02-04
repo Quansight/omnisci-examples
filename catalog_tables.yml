@@ -9,7 +9,7 @@ sources:
       user: demouser
       password: HyperInteractive
       dbname: mapd
-      host: ships-demo-local.mapd.com
+      host: metis.mapd.com
       protocol: https
       port: 443
       sql_expr: ships_ais

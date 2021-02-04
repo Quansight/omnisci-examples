@@ -32,4 +32,5 @@ dependencies:
   - rbc >=0.4
   - pip:
     - ibis-vega-transform
-    - nbmake==0.1.post1
+    - jaeger-browser
+    - nbmake >=0.2.0  # for tests

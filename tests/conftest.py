@@ -3,7 +3,7 @@ import ibis
 import pytest
 
 OMNISCIDB_HOST = '127.0.0.1'
-OMNISCIDB_PORT = 6274
+OMNISCIDB_PORT = 16274
 OMNISCIDB_DATABASE = 'omnisci'
 OMNISCIDB_USER = 'admin'
 OMNISCIDB_PASSWORD = 'HyperInteractive'

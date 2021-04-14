@@ -20,6 +20,9 @@ dependencies:
   - jupyter-jaeger >=1.0.4
   - nodejs >=12
   - notebook
+  # NOTE: numpy pinned to fix the following error:
+  #   AttributeError: type object 'object' has no attribute 'dtype'
+  - numpy <1.20
   - omnisci-pytools
   - pandas
   - pip

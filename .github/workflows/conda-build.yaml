@@ -13,10 +13,14 @@ jobs:
     timeout-minutes: 10
     strategy:
       matrix:
-        python-version: [3.7]
+        python-version: [3.8]
 
     env:
       PYTHON_VERSION: ${{ matrix.python-version }}
+
+    defaults:
+      run:
+        shell: bash -l {0}
 
     steps:
     - uses: actions/checkout@v2
@@ -28,19 +32,16 @@ jobs:
         auto-update-conda: true
         python-version: ${{ matrix.python-version }}
         activate-environment: omnisci-datascience
-        channels: quansight/label/omnisci,conda-forge
+        channels: conda-forge
 
     - name: install dependencies
-      shell: bash -l {0}
       run: |
         conda install -y conda-build anaconda-client
 
     - name: run conda build
-      shell: bash -l {0}
       run: conda-build conda
 
     - name: release to the quansight conda channel
-      shell: bash -l {0}
       if: startsWith(github.event_name, 'push')
       env:
         ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}

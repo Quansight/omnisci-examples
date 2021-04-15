@@ -16,6 +16,10 @@ requirements:
   host:
     - git
 
+test:
+  commands:
+    - test -f ${PREFIX}/opt/omnisci-examples/notebooks/00_Connection_Template.ipynb
+
 about:
   home: https://github.com/Quansight/omnisci-examples
   license: MIT

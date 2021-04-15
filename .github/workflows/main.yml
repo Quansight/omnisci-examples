@@ -12,7 +12,12 @@ jobs:
       fail-fast: false
       matrix:
         os: ['ubuntu-latest']
-        python-version: [3.7]
+        python-version: [3.8]
+
+    defaults:
+      run:
+        shell: bash -l {0}
+
     steps:
       - uses: actions/checkout@v2
       - uses: conda-incubator/setup-miniconda@v2
@@ -23,15 +28,15 @@ jobs:
           auto-activate-base: false
           auto-update-conda: false
           # This should match what is specified in the environment.yml channels
-          channels: quansight/label/omnisci,conda-forge
+          channels: conda-forge
+
       - name: conda config
-        shell: bash -l {0}
         run: conda config --show
+
       - name: conda list
-        shell: bash -l {0}
         run: conda list
+
       - name: Build the docker image
-        shell: bash -l {0}
         run: |
           # force docker-compose installation
           conda install -y docker-compose
@@ -39,11 +44,12 @@ jobs:
           docker-compose build
           docker-compose up -d
           sleep 5
+
       - name: show containers
         run: docker ps
+
       - name: run tests
-        shell: bash -l {0}
         run: pytest
+
       - name: test notebooks
-        shell: bash -l {0}
         run: pytest --nbmake -vv
